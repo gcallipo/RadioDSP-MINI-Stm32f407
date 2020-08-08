@@ -9,11 +9,12 @@ The dsp, can use any stm32f407 Cortex-M4 equipped board, but the pre-compiled bi
 optimized for the STM32F407VET6 processor (check the Schematic.jpg file for connection details).
 
 Features:
-AGC on/off
-BPF AM/SSB filter from 3k to 9k Hz with Low/High cut
-BPF Digital/CW filter from 500 to 3000 Hz with Low/High cut
-BPF 500 Hz CW filter with Shift tuning capabilities
-DNR 4 levels (digital noise reduction)
+
+	* AGC on/off
+	* BPF AM/SSB filter from 3k to 9k Hz with Low/High cut
+	* BPF Digital/CW filter from 500 to 3000 Hz with Low/High cut
+	* BPF 500 Hz CW filter with Shift tuning capabilities
+	* DNR 4 levels (digital noise reduction)
 
 Commands: 2 Led, 2 Push buttons and Encoder with switch (check Commands.jpg file for details).
 
@@ -41,7 +42,10 @@ https://www.youtube.com/watch?v=BbC8seuAkEg
 
 
 The project is work in progress and may be subject to change without notice.
-The RadioDSP MINI openSource software is released under the license: Common Creative - Attribution 3.0
+
+	The RadioDSP MINI openSource software is released under the license: 
+				Common Creative - Attribution 3.0
+				
 Vy 73 de Giuseppe Callipo - IK8YFW
 
 ********************************************************
