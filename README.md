@@ -1,3 +1,8 @@
+## ********************************************************
+	## Be patience this is a work in progress ...
+	##      commit was not complete ...
+## ********************************************************
+
 # RadioDSP-MINI-Stm32f407
 DSP for shortwave receivers with dynamic filtering capability - Pass Band Tuning, AGC and DNR
 
@@ -50,7 +55,3 @@ The project is work in progress and may be subject to change without notice.
 				Common Creative - Attribution 3.0
 				
 Vy 73 de Giuseppe Callipo - IK8YFW
-
-********************************************************
-	Be patience this is a work in progress ...
-********************************************************
