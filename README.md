@@ -8,7 +8,7 @@ with an AGC (Automatic Gain Control) to reduce the effects of signal overload.
 The dsp, can use any stm32f407 Cortex-M4 equipped board, but the pre-compiled binary was 
 optimized for the STM32F407VET6 processor (check the Schematic.jpg file for connection details).
 
-Features:
+#### Features:
 
 	* AGC on/off
 	* BPF AM/SSB filter from 3k to 9k Hz with Low/High cut
@@ -16,7 +16,9 @@ Features:
 	* BPF 500 Hz CW filter with Shift tuning capabilities
 	* DNR 4 levels (digital noise reduction)
 
-Commands: 2 Led, 2 Push buttons and Encoder with switch (check Commands.jpg file for details).
+#### Commands: 
+
+2 Led, 2 Push buttons and Encoder with switch (check Commands.jpg file for details).
 
 How it works:
 
@@ -28,11 +30,11 @@ upper bandwidth. The output signal is interpolated to increasing sampling freque
 Finally, the signal is processed with an AGC module that sends a feedback control signal to adjust 
 the input amplification.
 
-How to use it (Operations manual):
+#### How to use it (Operations manual):
 
 ...TODO ...
 
-Here some testing videos:
+#### Here some testing videos:
 
 RadioDsp Mini test SSB filter & NR
 https://www.youtube.com/watch?v=gY6wyI6ZqnY
