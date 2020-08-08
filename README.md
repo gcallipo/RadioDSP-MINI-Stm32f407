@@ -1,6 +1,3 @@
-####     Be patience this is a work in progress ...
-####     I'm working to share all the resources ...
-
 # RadioDSP-MINI-Stm32f407
 DSP for shortwave receivers with dynamic filtering capability - Pass Band Tuning, AGC and DNR
 
@@ -35,7 +32,34 @@ the input amplification.
 
 #### How to use it (Operations manual):
 
-...TODO ...
+Referring to the Controls.jpg file, when the RadioDSP MINI switched on, it is presetted as follows:
+
+* M1 as H-CUT command;
+* DNR turn off;
+* AGC turn on;
+* 9kHz speech filter.
+
+The M1 control allows you to adjust the bandwidth of the selected filter by acting on 
+the upper (hi cut) or lower (low-cut) part. To switch from Hi-cut to Low-cut adjustment, 
+just press the button once and the selection will be notified by the L1 led lighting up. 
+To return to the Hi-cut selection, simply press the button again.
+When the narrow CW filter is selected (last selection of the P1 button), the M1 command 
+works as SHIFT for the CW filter, and make it possible to center the received CW signal.
+
+By holding down the M1 command and simultaneously pressing the P2 button, 
+you enter mode (second function), which will allow you to activate or deactivate the AGC.
+
+In order to activate the DNR function, you can press the P2 button repeatedly, each time 
+you press a gradually increasing reduction level will be selected. 
+The activity of the DNR function is signaled by the lighting of LED L2.
+
+In order to select the filter modes, push button P1 repeatedly, 
+the three filters will be selected: Speech / CW / CWN.
+
+#### INPORTANT NOTE: 
+
+To upload pre compiled firmware (pre-compiled/test3.bin), please referring to the RadioDSP DNR 
+project instructions, this project use the same board.
 
 #### Here some testing videos:
 
