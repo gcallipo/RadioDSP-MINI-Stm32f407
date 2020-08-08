@@ -19,6 +19,7 @@ Features:
 Commands: 2 Led, 2 Push buttons and Encoder with switch (check Commands.jpg file for details).
 
 How it works:
+
 Referring to the ElaborationPath.jpg file, the audio input signal is sampled by an ADC at 48 KHz, 
 then it is subjected to DNR and then it is decimated by a factor of 2 to lower the sampling 
 frequency to 24 kHz (this is enough to processing up to 12KHz audio signal), after the decimation 
@@ -28,8 +29,8 @@ Finally, the signal is processed with an AGC module that sends a feedback contro
 the input amplification.
 
 How to use it (Operations manual):
-...TODO ...
 
+...TODO ...
 
 Here some testing videos:
 
