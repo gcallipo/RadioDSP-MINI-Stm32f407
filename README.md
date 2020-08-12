@@ -15,6 +15,11 @@ optimized for the STM32F407VET6 processor (check the Schematic.jpg file for conn
 	* BPF Digital/CW filter from 500 to 3000 Hz with Low/High cut
 	* BPF 500 Hz CW filter with Shift tuning capabilities
 	* DNR 4 levels (digital noise reduction)
+	
+#### DNR mode: 	
+The Digital Noise reduction has 4 levels, the first two implements the NLMS type
+of noise reduction (without distortion), levels 3 and 4 implements the Spectral subtraction
+and some distortions could be added to the audio, select the level for the better rsult.
 
 #### Commands: 
 
