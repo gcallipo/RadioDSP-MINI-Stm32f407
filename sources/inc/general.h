@@ -24,7 +24,7 @@
 /*- Size of sampleing block and fft */
 #define BLOCK_SIZE		         128
 #define BUFFER_SIZE		         BLOCK_SIZE * N_BLOCKS
-#define FFT_SIZE                 128
+//#define FFT_SIZE                 128
 
 
 //#define EXP_SMOOTING

@@ -33,6 +33,7 @@
 #include <complex.h>
 
 #include <filter_noise_reduction_lms.h>
+#include <filter_noise_reduction_spc.h>
 #include "tm_enc/tm_stm32f4_rotary_encoder.h"
 
 #include "general.h"
@@ -49,7 +50,7 @@ uint8_t		   ilock = 0;
 uint8_t        ilock1 = 0;
 uint8_t        ilockEn = 0;
 uint8_t        iFilterMode = 0; // 0 = width - 1 = width
-uint8_t        iAGCMode = 0;    // 1 = AGC ON - 0 AGC OFF
+uint8_t        iAGCMode = 1;    // 1 = AGC ON - 0 AGC OFF
 uint8_t        ilockSwAgc = 0;
 
 /* Rotary encoder data */
@@ -171,6 +172,8 @@ int main(void)
     /*- Initialize LMS Noise Reduction */
     Init_LMS_NR (10);
 
+    /*- Initialize SPC Noise Reduction */
+    spectral_noise_reduction_init();
 
     /*- Initialize ADC and DAC */
     ADC1_CH6_DMA_Config(BUFFER_SIZE);
@@ -218,7 +221,7 @@ void DMA2_Stream0_IRQHandler()
     /*- converter ADC to float */
 	arm_q15_to_float(&ADC_ConvertedValue[iCurBuffIdx][0],&BufferAudioIn[0],BUFFER_SIZE);
 
-//	// Elaborate ...
+	// Elaborate ... elaborate ...
 	for (int i= 0;i< N_BLOCKS; i++ ){
 
 			if (iNrLevel==0){ //BYPASS
@@ -231,7 +234,16 @@ void DMA2_Stream0_IRQHandler()
 				}
 
 				/*- noise reduction LMS */
-				processing_noise_reduction(&Buffer1[0], &BufferAudioWork[0]);
+				if (iNrLevel<3){ //SPC
+				    processing_noise_reduction(&Buffer1[0], &BufferAudioWork[0]);
+				}
+
+				if (iNrLevel==3){ //SPC
+				    processing_noise_reduction_spc(1, &Buffer1[0], &BufferAudioWork[0]);
+				}
+				if (iNrLevel==4){ //SPC
+					processing_noise_reduction_spc(2, &Buffer1[0], &BufferAudioWork[0]);
+				}
 			}
 
 			// anti alias pre-filtering
@@ -382,22 +394,24 @@ void TIM5_IRQHandler()
         		    GPIO_ResetBits(GPIOE, GPIO_Pin_6);
         		}
 
-        		if (iNrLevel==1){
+        		//if (iNrLevel==1){
         		    /*- Initialize LMS Noise Reduction */
-        		    Init_LMS_NR (10);
-        		}
+        		//    Init_LMS_NR (10);
+        		//}
 
-        		if (iNrLevel==2){
+        		//if (iNrLevel==2){
+        		if (iNrLevel==1){
         		    /*- Initialize LMS Noise Reduction */
         		    Init_LMS_NR (15);
         		}
 
-        		if (iNrLevel==3){
+        		//if (iNrLevel==3){
         		    /*- Initialize LMS Noise Reduction */
-        			Init_LMS_NR (20);
-        		}
+        		//	Init_LMS_NR (20);
+        		//}
 
-        		if (iNrLevel==4){
+        		//if (iNrLevel==4){
+        		if (iNrLevel==2){
         		    /*- Initialize LMS Noise Reduction */
         		    Init_LMS_NR (25);
         		}

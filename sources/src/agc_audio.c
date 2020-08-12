@@ -85,8 +85,8 @@ float AGC_Processing(float* bufferIn, float last_gain, int iNrLevel){
 	// Adjust AGC gain
 	gain_in += (AGCgain - gain_in) * 0.005;
 
-	// add a small gain to compensate loss in nr
-	if (iNrLevel>0){
+	// add a small gain to compensate loss in nr (only NLMS
+	if (iNrLevel>0 && iNrLevel<3){
 		gain_in *= 1.05;
 	}
 
